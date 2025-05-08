@@ -55,7 +55,7 @@ public class TemperatureController {
         ).defaultIfEmpty(ResponseEntity.notFound().build());
   }
 
-  @GetMapping("/metrics-time")
+  @GetMapping("/metrics-time/search")
   @Operation(summary = "Métricas Temperatura - Tiempo", description = "Devuelve las métricas de temperatura por tiempo y con filtros")
   public Mono<ResponseEntity<Flux<MetricsTimeDTO>>> findMetricsTime(@Valid @ModelAttribute MetricsFilterDTO dto) {
     Flux<MetricsTimeDTO> fx = service.findMetricsTime(dto);
@@ -65,7 +65,7 @@ public class TemperatureController {
     ).defaultIfEmpty(ResponseEntity.notFound().build());
   }
 
-  @GetMapping("/metrics-date")
+  @GetMapping("/metrics-date/search")
   @Operation(summary = "Métricas Temperatura - Fecha", description = "Devuelve las métricas de temperatura por fecha y con filtros")
   public Mono<ResponseEntity<MetricsDateDTO>> findMetricsDate(@Valid @ModelAttribute MetricsFilterDTO dto) {
     return service.findMetricsDate(dto)

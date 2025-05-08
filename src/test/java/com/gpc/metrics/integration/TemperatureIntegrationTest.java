@@ -126,7 +126,7 @@ class TemperatureIntegrationTest {
 
     // Act & Assert
     webTestClient.get()
-        .uri("/api/temperatures/metrics-time?date=2025-05-07&type=C")
+        .uri("/api/temperatures/metrics-time/search?date=2025-05-07&type=C")
         .accept(MediaType.APPLICATION_JSON)
         .exchange()
         .expectStatus().isOk()
@@ -148,7 +148,7 @@ class TemperatureIntegrationTest {
 
     // Act & Assert
     webTestClient.get()
-        .uri("/api/temperatures/metrics-date?date=2025-05-07&type=F")
+        .uri("/api/temperatures/metrics-date/search?date=2025-05-07&type=F")
         .accept(MediaType.APPLICATION_JSON)
         .exchange()
         .expectStatus().isOk()

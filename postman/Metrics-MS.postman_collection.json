@@ -68,7 +68,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/temperatures/metrics-time?date=2025-05-06&type=C",
+					"raw": "http://localhost:8080/api/temperatures/metrics-time/search?date=2025-05-06&type=C",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -77,7 +77,8 @@
 					"path": [
 						"api",
 						"temperatures",
-						"metrics-time"
+						"metrics-time",
+						"search"
 					],
 					"query": [
 						{
@@ -102,7 +103,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/temperatures/metrics-date?date=2025-05-06&type=F",
+					"raw": "http://localhost:8080/api/temperatures/metrics-date/search?date=2025-05-06&type=F",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -111,7 +112,8 @@
 					"path": [
 						"api",
 						"temperatures",
-						"metrics-date"
+						"metrics-date",
+						"search"
 					],
 					"query": [
 						{

@@ -72,11 +72,15 @@ public class TemperatureServiceImpl implements TemperatureService {
   }
 
   private Double getValueByType(Double value, String type) {
-    BigDecimal result = switch (type) {
-      case "C" -> new BigDecimal(value).setScale(2, RoundingMode.HALF_UP);
-      case "F" -> BigDecimal.valueOf(convertFahrenheit(value)).setScale(2, RoundingMode.HALF_UP);
+    return switch (type) {
+      case "C" -> getValueRound(value);
+      case "F" -> getValueRound(convertFahrenheit(value));
       default -> throw new IllegalStateException("Unexpected value: " + type);
     };
+  }
+
+  private Double getValueRound(Double value) {
+    BigDecimal result = new BigDecimal(value).setScale(2, RoundingMode.HALF_UP);
     return result.doubleValue();
   }
 
