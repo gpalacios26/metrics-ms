@@ -65,19 +65,10 @@
 				"auth": {
 					"type": "noauth"
 				},
-				"method": "POST",
+				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"date\": \"2025-05-06\",\r\n    \"type\": \"C\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "http://localhost:8080/api/temperatures/metrics-time",
+					"raw": "http://localhost:8080/api/temperatures/metrics-time?date=2025-05-06&type=C",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -87,6 +78,16 @@
 						"api",
 						"temperatures",
 						"metrics-time"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2025-05-06"
+						},
+						{
+							"key": "type",
+							"value": "C"
+						}
 					]
 				}
 			},
@@ -98,19 +99,10 @@
 				"auth": {
 					"type": "noauth"
 				},
-				"method": "POST",
+				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"date\": \"2025-05-06\",\r\n    \"type\": \"F\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "http://localhost:8080/api/temperatures/metrics-date",
+					"raw": "http://localhost:8080/api/temperatures/metrics-date?date=2025-05-06&type=F",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -120,6 +112,16 @@
 						"api",
 						"temperatures",
 						"metrics-date"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2025-05-06"
+						},
+						{
+							"key": "type",
+							"value": "F"
+						}
 					]
 				}
 			},

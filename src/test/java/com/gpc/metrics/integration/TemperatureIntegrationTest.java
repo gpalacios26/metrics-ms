@@ -6,11 +6,9 @@ import com.gpc.metrics.controller.TemperatureController;
 import com.gpc.metrics.dto.MetricsDateDTO;
 import com.gpc.metrics.dto.MetricsTimeDTO;
 import com.gpc.metrics.dto.TemperatureDTO;
-import com.gpc.metrics.integration.mock.MetricsFilterMock;
 import com.gpc.metrics.integration.mock.TemperatureMock;
 import com.gpc.metrics.model.Temperature;
 import com.gpc.metrics.service.TemperatureService;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -121,20 +119,15 @@ class TemperatureIntegrationTest {
   @Test
   void testFindMetricsTime() {
     // Arrange
-    MetricsFilterMock filterMock = new MetricsFilterMock();
-    filterMock.setDate(LocalDate.parse("2025-05-07"));
-    filterMock.setType("C");
-
     MetricsTimeDTO metricsTime1 = new MetricsTimeDTO();
     MetricsTimeDTO metricsTime2 = new MetricsTimeDTO();
 
     Mockito.when(service.findMetricsTime(Mockito.any())).thenReturn(Flux.just(metricsTime1, metricsTime2));
 
     // Act & Assert
-    webTestClient.post()
-        .uri("/api/temperatures/metrics-time")
+    webTestClient.get()
+        .uri("/api/temperatures/metrics-time?date=2025-05-07&type=C")
         .accept(MediaType.APPLICATION_JSON)
-        .body(BodyInserters.fromValue(filterMock))
         .exchange()
         .expectStatus().isOk()
         .expectHeader().contentType(MediaType.APPLICATION_JSON)
@@ -149,19 +142,14 @@ class TemperatureIntegrationTest {
   @Test
   void testFindMetricsDate() {
     // Arrange
-    MetricsFilterMock filterMock = new MetricsFilterMock();
-    filterMock.setDate(LocalDate.parse("2025-05-07"));
-    filterMock.setType("C");
-
     MetricsDateDTO metricsDate = new MetricsDateDTO();
 
     Mockito.when(service.findMetricsDate(Mockito.any())).thenReturn(Mono.just(metricsDate));
 
     // Act & Assert
-    webTestClient.post()
-        .uri("/api/temperatures/metrics-date")
+    webTestClient.get()
+        .uri("/api/temperatures/metrics-date?date=2025-05-07&type=F")
         .accept(MediaType.APPLICATION_JSON)
-        .body(BodyInserters.fromValue(filterMock))
         .exchange()
         .expectStatus().isOk()
         .expectHeader().contentType(MediaType.APPLICATION_JSON)

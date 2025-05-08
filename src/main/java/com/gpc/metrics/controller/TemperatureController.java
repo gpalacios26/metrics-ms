@@ -16,6 +16,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -54,9 +55,9 @@ public class TemperatureController {
         ).defaultIfEmpty(ResponseEntity.notFound().build());
   }
 
-  @PostMapping("/metrics-time")
+  @GetMapping("/metrics-time")
   @Operation(summary = "Métricas Temperatura - Tiempo", description = "Devuelve las métricas de temperatura por tiempo y con filtros")
-  public Mono<ResponseEntity<Flux<MetricsTimeDTO>>> findMetricsTime(@Valid @RequestBody MetricsFilterDTO dto) {
+  public Mono<ResponseEntity<Flux<MetricsTimeDTO>>> findMetricsTime(@Valid @ModelAttribute MetricsFilterDTO dto) {
     Flux<MetricsTimeDTO> fx = service.findMetricsTime(dto);
     return Mono.just(ResponseEntity.ok()
         .contentType(MediaType.APPLICATION_JSON)
@@ -64,9 +65,9 @@ public class TemperatureController {
     ).defaultIfEmpty(ResponseEntity.notFound().build());
   }
 
-  @PostMapping("/metrics-date")
+  @GetMapping("/metrics-date")
   @Operation(summary = "Métricas Temperatura - Fecha", description = "Devuelve las métricas de temperatura por fecha y con filtros")
-  public Mono<ResponseEntity<MetricsDateDTO>> findMetricsDate(@Valid @RequestBody MetricsFilterDTO dto) {
+  public Mono<ResponseEntity<MetricsDateDTO>> findMetricsDate(@Valid @ModelAttribute MetricsFilterDTO dto) {
     return service.findMetricsDate(dto)
         .map(metrics -> ResponseEntity.ok()
               .contentType(MediaType.APPLICATION_JSON)
