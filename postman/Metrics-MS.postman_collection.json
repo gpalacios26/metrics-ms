@@ -1,0 +1,129 @@
+{
+	"info": {
+		"_postman_id": "b39f0791-7cab-4020-831a-aa34df0cf272",
+		"name": "Metrics-MS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6370137",
+		"_collection_link": "https://nttdata-8314.postman.co/workspace/NTTDATA~6ee45e0a-5cff-41b4-811c-50f1f85fbd72/collection/6370137-b39f0791-7cab-4020-831a-aa34df0cf272?action=share&source=collection_link&creator=6370137"
+	},
+	"item": [
+		{
+			"name": "Save Temperature",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"valueCelsius\": 30.0,\r\n    \"dateTime\": \"2025-05-07T13:35:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/temperatures",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"temperatures"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Temperatures",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/temperatures",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"temperatures"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Metrics Time",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"date\": \"2025-05-06\",\r\n    \"type\": \"C\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/temperatures/metrics-time",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"temperatures",
+						"metrics-time"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Metrics Date",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"date\": \"2025-05-06\",\r\n    \"type\": \"F\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/temperatures/metrics-date",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"temperatures",
+						"metrics-date"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
