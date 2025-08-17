@@ -1,6 +1,6 @@
 # Code challenge - Ejercicio Lvl 2: Microservicio Metrics
 
-Este proyecto es un microsevicio **Java** utilizando **Spring Boot** y **WebFlux** para construir una API reactiva de captura y métricas de tiempo.
+Este proyecto es un microservicio **Java** utilizando **Spring Boot** y **WebFlux** para construir una API reactiva de captura y métricas de tiempo.
 
 ---
 
